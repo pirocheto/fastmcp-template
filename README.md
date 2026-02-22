@@ -15,12 +15,12 @@
 
 - **[FastMCP](https://github.com/jlowin/fastmcp)** — Framework for building MCP servers
 - **[uv](https://docs.astral.sh/uv/)** — Modern Python package and dependency manager
-- **Python 3.14** — Latest Python version
 - **[ty](https://github.com/tjdevries/ty)** — Static type checker
 - **[ruff](https://docs.astral.sh/ruff/)** — Fast Python linter & formatter
 - **[pydantic-settings](https://docs.pydantic.dev/latest/concepts/pydantic_settings/)** — Configuration management from environment variables
 - **Testing with coverage** — pytest + pytest-asyncio with code coverage reports
 - **Production-ready Dockerfile** — Multi-stage build with non-root user, bytecode compilation, and minimal base image
+- **Copilot MCP integration** — Pre-configured `.vscode/mcp.json` for accessing FastMCP documentation via MCP
 
 ---
 
