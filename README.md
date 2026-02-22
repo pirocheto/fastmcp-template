@@ -91,37 +91,6 @@ MCP_PORT=8080
 ---
 
 
-### Build
-
-```bash
-make build
-```
-
-or directly with podman:
-
-```bash
-podman build -t mcp:latest .
-```
-
-### Run
-
-```bash
-make start
-```
-
-The container exposes port `8080` by default (`MCP_PORT=8080`, `MCP_TRANSPORT=http`).
-
----
-
-## Testing
-
-```bash
-make test
-```
-
-Tests use `pytest-asyncio` and a shared `Client` fixture from `tests/conftest.py`.
-
----
 
 ## Adding Tools
 
