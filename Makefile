@@ -9,15 +9,15 @@ dev:
 .PHONY: test
 test:
 	@echo "Run the test suite."
-	pytest
-
+	coverage run -m pytest
+	coverage report -m
 
 .PHONY: build
 build:
 	@echo "Build the Docker image for the MCP server."
-	docker buildx build -t mcp:latest .
+	podman build -t mcp:latest .
 
 .PHONY: start
 start:
-	@echo "Start the MCP server using Docker. (Prod run)"
-	docker run -p $(MCP_PORT):$(MCP_PORT) -e MCP_PORT=$(MCP_PORT) mcp:latest
+	@echo "Start the MCP server using Podman. (Prod run)"
+	podman run -p $(MCP_PORT):$(MCP_PORT) -e MCP_PORT=$(MCP_PORT) mcp:latest

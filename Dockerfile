@@ -32,12 +32,12 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 ARG PYTHON_VERSION=3.14
 FROM python:${PYTHON_VERSION}-slim
 
-# Copy the environment, but not the source code
-COPY --from=builder --chown=app:app /app/.venv /app/.venv
-
 # Create a non-root user to run the application
 RUN groupadd --system --gid 999 nonroot \
     && useradd --system --gid 999 --uid 999 --create-home nonroot
+
+# Copy the environment, but not the source code
+COPY --from=builder --chown=nonroot:nonroot /app/.venv /app/.venv
 
 USER nonroot
 

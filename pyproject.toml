@@ -1,7 +1,7 @@
 [project]
-name = "{{ project_name }}"
+name = "my-awesome-project"
 version = "0.1.0"
-description = "{{ project_description }}"
+description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = ["fastmcp==3.0.0b2", "pydantic-settings>=2.12.0"]
@@ -13,6 +13,7 @@ dev = [
     "pytest>=8.0.0",
     "pytest-asyncio>=0.24.0",
     "httpx>=0.27.0",
+    "coverage>=7.13.4",
 ]
 
 [tool.pytest.ini_options]

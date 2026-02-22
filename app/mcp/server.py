@@ -6,7 +6,7 @@ from app.mcp.config import get_settings
 
 settings = get_settings()
 
-mcp = FastMCP(name="MCP Example")
+mcp = FastMCP(name="My MCP Server")
 
 
 @mcp.tool
