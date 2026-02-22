@@ -5,7 +5,7 @@
 **A production-ready template for building [Model Context Protocol (MCP)](https://modelcontextprotocol.io) servers with [FastMCP](https://github.com/jlowin/fastmcp).**
 
 ![Python](https://img.shields.io/badge/python-3.14+-blue.svg?style=for-the-badge&logo=python&logoColor=white)
-![FastMCP](https://img.shields.io/badge/FastMCP-3.0.0b2-blue.svg?style=for-the-badge)
+![FastMCP](https://img.shields.io/badge/FastMCP-3.0.1-blue.svg?style=for-the-badge)
 
 </div>
 
@@ -44,12 +44,11 @@ uv sync
 make dev
 ```
 
-This starts the server with `--reload` on `http://0.0.0.0:8000` using the `http` transport by default.
+This starts the server with `--reload` on `http://0.0.0.0:8000`.
 
-Override transport or port:
+Override port:
 
 ```bash
-make dev MCP_TRANSPORT=stdio
 make dev MCP_PORT=9000
 ```
 
@@ -67,13 +66,11 @@ Settings are loaded from environment variables (prefix `MCP_`) or a `.env` file.
 
 | Variable        | Default  | Description                                      |
 |-----------------|----------|--------------------------------------------------|
-| `MCP_TRANSPORT` | `stdio`  | Transport: `stdio`, `http`, `sse`, `streamable-http` |
-| `MCP_PORT`      | `8000`   | Port (used only for HTTP-based transports)       |
+| `MCP_PORT`      | `8000`   | Port for the HTTP server                         |
 
 **Example `.env`:**
 
 ```env
-MCP_TRANSPORT=http
 MCP_PORT=8080
 ```
 

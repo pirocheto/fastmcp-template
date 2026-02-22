@@ -40,7 +40,6 @@ htmlcov/
 .env.*
 
 # Documentation & Build files
-README.md
 Makefile
 Dockerfile
 .dockerignore

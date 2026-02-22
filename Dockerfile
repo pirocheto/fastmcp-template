@@ -45,8 +45,6 @@ USER nonroot
 ENV PATH="/app/.venv/bin:$PATH"
 
 # Set environment variables for FastMCP
-ENV FASTMCP_SHOW_SERVER_BANNER=false
 ENV MCP_PORT=8080
-ENV MCP_TRANSPORT=http
 
 CMD ["python", "-m", "app.main"]

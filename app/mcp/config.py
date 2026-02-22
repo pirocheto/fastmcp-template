@@ -1,5 +1,4 @@
 from functools import lru_cache
-from typing import Literal
 
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -7,11 +6,6 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     """Application settings."""
-
-    transport: Literal["stdio", "http", "sse", "streamable-http"] = Field(
-        "stdio",
-        description="The transport to use for the MCP server.",
-    )
 
     port: int = Field(
         8000,

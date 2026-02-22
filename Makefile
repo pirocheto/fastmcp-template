@@ -1,10 +1,9 @@
-MCP_TRANSPORT ?= http
 MCP_PORT ?= 8000
 
 .PHONY: dev
 dev:
 	@echo "Run the MCP server in development mode with auto-reloading."
-	fastmcp run app/main.py --transport $(MCP_TRANSPORT) --port $(MCP_PORT) --reload
+	fastmcp run app/main.py --transport http --port $(MCP_PORT) --reload
 
 .PHONY: test
 test:
