@@ -2,7 +2,7 @@ from fastmcp import FastMCP
 from starlette.requests import Request
 from starlette.responses import PlainTextResponse
 
-from app.mcp.config import get_settings
+from app.config import get_settings
 
 settings = get_settings()
 

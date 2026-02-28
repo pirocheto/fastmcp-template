@@ -1,5 +1,5 @@
-from app.mcp.config import get_settings
-from app.mcp.server import mcp
+from app.config import get_settings
+from app.server import mcp
 
 
 settings = get_settings()
