@@ -4,7 +4,7 @@
 
 **A production-ready template for building [Model Context Protocol (MCP)](https://modelcontextprotocol.io) servers with [FastMCP](https://github.com/jlowin/fastmcp).**
 
-![Python](https://img.shields.io/badge/python-3.14+-blue.svg?style=for-the-badge&logo=python&logoColor=white)
+![Python](https://img.shields.io/badge/python-3.13+-blue.svg?style=for-the-badge&logo=python&logoColor=white)
 ![FastMCP](https://img.shields.io/badge/FastMCP-3.0.1-blue.svg?style=for-the-badge)
 
 </div>
@@ -44,18 +44,18 @@ uv sync
 make dev
 ```
 
-This starts the server with `--reload` on `http://0.0.0.0:8000`.
-
-Override port:
-
-```bash
-make dev MCP_PORT=9000
-```
+This runs FastMCP with `dev.fastmcp.json` in `stdio` transport mode and auto-reload.
 
 ### 3. Run manually
 
 ```bash
-python -m app.main
+uv run fastmcp run dev.fastmcp.json --reload
+```
+
+Run the production ASGI app locally:
+
+```bash
+MCP_ENV=production uv run uvicorn src.server:app --host 0.0.0.0 --port 8000
 ```
 
 ---
@@ -66,12 +66,14 @@ Settings are loaded from environment variables (prefix `MCP_`) or a `.env` file.
 
 | Variable        | Default  | Description                                      |
 |-----------------|----------|--------------------------------------------------|
-| `MCP_PORT`      | `8000`   | Port for the HTTP server                         |
+| `MCP_SERVICE_NAME` | `MCP Server` | FastMCP service name                        |
+| `MCP_ENV`       | `development` | Runtime mode (`development` or `production`) |
 
 **Example `.env`:**
 
 ```env
-MCP_PORT=8080
+MCP_SERVICE_NAME=My MCP Server
+MCP_ENV=development
 ```
 
 ---
@@ -80,18 +82,17 @@ MCP_PORT=8080
 
 | Command       | Description                                    |
 |---------------|------------------------------------------------|
-| `make dev`    | Start server in dev mode with auto-reload      |
+| `make dev`    | Run FastMCP in dev mode (`stdio`) with auto-reload |
 | `make test`   | Run the test suite with coverage report        |
-| `make build`  | Build the Docker image (`podman build`)        |
-| `make start`  | Run the container in production (`podman run`) |
-
+| `make build`  | Build the Docker image (`docker build -t mcp:latest .`) |
+| `make start`  | Run the container in production (`docker run -p 8000:8000 mcp:latest`) |
 ---
 
 
 
 ## Adding Tools
 
-Register new tools in [app/mcp/server.py](app/mcp/server.py):
+Register new tools in [src/server.py](src/server.py):
 
 ```python
 @mcp.tool

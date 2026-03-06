@@ -4,8 +4,6 @@ import pytest
 from fastmcp import Client
 
 
-
-@pytest.mark.asyncio
 @pytest.mark.parametrize(
     "a, b, expected",
     [

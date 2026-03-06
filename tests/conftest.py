@@ -3,8 +3,7 @@
 import pytest
 from fastmcp import Client
 
-from app.mcp.config import Settings
-from app.mcp.server import mcp
+from src.server import mcp
 
 
 @pytest.fixture
